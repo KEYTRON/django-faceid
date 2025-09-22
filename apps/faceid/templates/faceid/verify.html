@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <title>Face Verify</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'faceid/css/faceid.css' %}">
+  <meta name="csrf-token" content="{{ csrf_token }}">
+</head>
+<body>
+  <main class="wrap">
+    <h1>Вход по лицу</h1>
+    <input id="username" placeholder="username">
+    <div class="video-wrap">
+      <video id="cam" autoplay playsinline></video>
+      <canvas id="overlay"></canvas>
+    </div>
+    <div class="progress">
+      <div id="steps"></div>
+    </div>
+    <button id="start">Пройти проверку</button>
+    <button id="login" disabled>Войти</button>
+  </main>
+  {% load static %}
+  <script type="module" src="{% static 'faceid/js/faceid.js' %}"></script>
+  <script>window.FACEID_MODE = "verify";</script>
+</body>
+</html>
